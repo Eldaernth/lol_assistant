@@ -1,14 +1,15 @@
 import React from "react";
+import "./Homepage.css"
 
 export default function Homepage() {
     return (
         <div>
-            <div>
-                <div>
-                    <img src="/wukong.jpeg"/>
+            <div className="champions_wrapper">
+                <div className="img_wrapper">
+                    <img src="/wukong_face.jpeg"/>
                 </div>
-                <div>
-                    <img src="/ahri.jpeg"/>
+                <div className="img_wrapper">
+                    <img src="/ahri_face.jpeg"/>
                 </div>
             </div>
             <div>

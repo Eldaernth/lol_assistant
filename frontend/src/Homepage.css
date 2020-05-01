@@ -1,3 +1,9 @@
+h1{
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+}
+
 .champions_wrapper{
     display: flex;
     justify-content: space-around;

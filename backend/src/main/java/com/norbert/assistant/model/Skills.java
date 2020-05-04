@@ -15,14 +15,13 @@ import javax.persistence.*;
 public class Skills {
 
     @Id
-    @GeneratedValue
-    long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-    String name;
-
-    String description;
+    private String name;
+    private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    Champions champions;
+    private Champions champions;
 
 }

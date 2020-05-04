@@ -12,22 +12,23 @@ import java.util.List;
 @Entity
 public class Champions {
     @Id
-    @GeneratedValue
-    long ID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long ID;
 
-    String name;
+    private String name;
 
-    String race;
+    private String race;
 
-    String classsName;
+    private String className;
 
-    String lore;
+    @Column(columnDefinition="TEXT")
+    private String lore;
 
-    String location;
+    private String location;
 
-    String difficulty;
+    private String difficulty;
 
-    @OneToMany(mappedBy = "bookCategory", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @Singular
-    List<Skills> skills;
+    @OneToMany(mappedBy = "champions", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private List<Skills> skills;
 }

@@ -63,6 +63,7 @@ public class AssistantApplication {
 
             Champions champ = Champions.builder()
                     .name("Ahri")
+                    .title("the Nine-Tailed Fox")
                     .race("Vastaya")
                     .className("Mage")
                     .difficulty("Medium")
@@ -71,14 +72,24 @@ public class AssistantApplication {
                             "into orbs of raw energy. She revels in toying with her prey by manipulating their emotions " +
                             "before devouring their life essence. Despite her predatory nature, Ahri retains a sense of " +
                             "empathy as she receives flashes of memory from each soul she consumes.")
+                    .skill(skill1)
+                    .skill(skill2)
+                    .skill(skill3)
+                    .skill(skill4)
+                    .skill(skill5)
                     .build();
 
+            championsRepository.save(champ);
+            skill1.setChampions(champ);
+            skill2.setChampions(champ);
+            skill3.setChampions(champ);
+            skill4.setChampions(champ);
+            skill5.setChampions(champ);
             skillsRepository.save(skill1);
             skillsRepository.save(skill2);
             skillsRepository.save(skill3);
             skillsRepository.save(skill4);
             skillsRepository.save(skill5);
-            championsRepository.save(champ);
         };
     }
 }

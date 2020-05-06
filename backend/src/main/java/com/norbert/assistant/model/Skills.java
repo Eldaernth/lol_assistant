@@ -1,9 +1,7 @@
 package com.norbert.assistant.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -19,9 +17,13 @@ public class Skills {
     private long id;
 
     private String name;
+
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @JsonIgnore
     private Champions champions;
 
 }

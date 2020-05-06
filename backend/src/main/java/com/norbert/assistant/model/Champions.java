@@ -11,11 +11,14 @@ import java.util.List;
 @Builder
 @Entity
 public class Champions {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ID;
+    private long id;
 
     private String name;
+
+    private String title;
 
     private String race;
 
@@ -30,5 +33,7 @@ public class Champions {
 
     @Singular
     @OneToMany(mappedBy = "champions", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private List<Skills> skills;
 }

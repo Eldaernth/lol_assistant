@@ -1,19 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {useParams} from "react-router-dom"
-import Axios from "axios";
-import "./ChampionsPage.css"
+import {ChampionContext} from "../context/ChampionContext"
+import "../css/ChampionsPage.css"
+import Skills from "./Skills";
+
 
 export default function ChampionPage() {
     let {name} = useParams();
-    const [champion, setChampion] = useState({});
-    const [skills, setSkills] = useState({});
+    const {champion,championMethods,skills} = useContext(ChampionContext);
     useEffect(() => {
-        Axios.get(`http://localhost:8080/${name}`)
-            .then((res) => {
-                setChampion(res.data);
-            });
+        championMethods.getChampionDetails(name);
     }, [])
-    console.log(champion);
+    console.log(skills);
     return (
         <div className="champions_page">
             <div className="champ_img_wrapper">

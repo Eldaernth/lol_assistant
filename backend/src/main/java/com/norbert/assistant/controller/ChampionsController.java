@@ -5,11 +5,9 @@ import com.norbert.assistant.model.Champions;
 import com.norbert.assistant.repository.ChampionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/")
 public class ChampionsController {
@@ -19,6 +17,7 @@ public class ChampionsController {
 
     @GetMapping("{name}")
     public ResponseEntity getChampByName(@PathVariable("name") String name){
+        System.out.println(championsRepository.getChampionsByName(name));
         return ResponseEntity.ok(championsRepository.getChampionsByName(name));
     }
 }

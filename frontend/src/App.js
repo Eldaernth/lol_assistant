@@ -4,6 +4,7 @@ import './App.css';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Homepage from "./Homepage";
 import NavBar from "./Nav";
+import ChampionPage from "./ChampionPage";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
         <NavBar/>
       <Router>
         <Switch>
-          <Route path="/homepage" component={Homepage}/>
+          <Route path="/"  exact component={Homepage}/>
+          <Route path="/:name" component={ChampionPage}/>
         </Switch>
       </Router>
     </div>

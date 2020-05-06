@@ -8,13 +8,13 @@ export default function Homepage() {
             <h1>Champions</h1>
             <div className="champions_wrapper">
                 <div className="img_wrapper">
-                    <Link to="/wukong">
-                    <img src="/wukong_face.jpeg"/>
+                    <Link to="/Wukong">
+                        <img src="/wukong_face.jpeg" className="icon"/>
                     </Link>
                 </div>
                 <div className="img_wrapper">
-                    <Link to="/ahri">
-                        <img src="/ahri_face.jpeg"/>
+                    <Link to="/Ahri">
+                        <img src="/ahri_face.jpeg" className="icon"/>
                     </Link>
                 </div>
             </div>

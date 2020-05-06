@@ -1,7 +1,7 @@
 h1{
     font-size: 48px;
     font-weight: bold;
-    color: white;
+    color: #f2c261;
 }
 
 .champions_wrapper{
@@ -12,19 +12,19 @@ h1{
 .img_wrapper{
     width:150px;
     height:150px;
-    border:2px solid white;
+    border:2px solid #f2c261;
     border-radius: 50%;
     overflow: hidden;
 }
 
-img{
+icon{
     cursor:pointer;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     transition: 0.3s;
 }
 
 .img_wrapper:hover img{
-    width:160px;
-    height: 160px;
+    width:180px;
+    height: 180px;
 }

@@ -1,8 +1,11 @@
 .navbar{
     display: flex;
-    background-color: #454343;
+    background-color: #1f1e1e;
 }
-
+.app_name{
+    font-weight: bold;
+    color:#f2c261
+}
 .logo_wrapper{
     flex: 1;
     text-align: left;
@@ -34,4 +37,7 @@ li{
 .sign_in{
     background-color: #ffaa00;
     color: black;
+}
+a{
+    text-decoration: none;
 }

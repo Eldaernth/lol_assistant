@@ -1,0 +1,60 @@
+.champions_page{
+    margin:0 auto;
+}
+.champ_img_wrapper{
+    width: 100%;
+
+}
+.champ_img{
+    width: 100%;
+    height: 100vmin;
+}
+.champ_details{
+    width: 70%;
+    height: 80vmin;
+    margin: 50px auto;
+}
+.champ_header{
+    display: flex;
+    justify-content: space-around;
+}
+.champ_bottom{
+    display: flex;
+    justify-content: space-between;
+}
+.lore{
+    display: flex;
+    align-items: center;
+}
+.detail_wrapper,.link{
+    flex: 1;
+    min-height: 150px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    margin:6px;
+    background-color: #383636;
+    border: 1px solid #f2c261;
+}
+h2{
+    color: #f2c261;
+}
+.race:hover{
+    cursor: pointer;
+    background-color: #f2c261;
+}
+.race:hover h2{
+    color: white;
+}
+.more_lore:link,.more_lore:visited{
+    background-color: #3d3e40;
+    color: white;
+    padding: 25px 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+.more_lore:hover{
+    border: 1px solid #f2c261;
+}
+

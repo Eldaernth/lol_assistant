@@ -20,9 +20,9 @@ public class Skills {
 
     private String description;
 
+    private String icon_name;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     @JsonIgnore
     private Champions champions;
 

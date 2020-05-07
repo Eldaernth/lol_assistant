@@ -1,0 +1,26 @@
+.skill_details{
+    display: flex;
+    flex:1;
+}
+
+.skill_icon{
+    position: relative;
+    flex:1;
+}
+
+.skill_icon img {
+    position: absolute;
+    top:18px
+}
+.skill_description{
+    text-align: left;
+
+    flex:4;
+}
+
+.skill_video{
+    flex: 1;
+}
+.skill_wrapper{
+    margin-top:100px;
+}

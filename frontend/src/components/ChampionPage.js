@@ -11,7 +11,6 @@ export default function ChampionPage() {
     useEffect(() => {
         championMethods.getChampionDetails(name);
     }, [])
-    console.log(skills);
     return (
         <div className="champions_page">
             <div className="champ_img_wrapper">
@@ -20,6 +19,9 @@ export default function ChampionPage() {
             <div>
                 <ul>
                     <li><a href="#details"><h2>Details</h2></a></li>
+                    <li><a href="#skills"><h2>Skills</h2></a></li>
+                    <li><a href="#skills"><h2>Builds</h2></a></li>
+                    <li><a href="#skills"><h2>Counters</h2></a></li>
                 </ul>
             </div>
             <div className="champ_details" id="details">
@@ -59,7 +61,7 @@ export default function ChampionPage() {
                     </a>
                 </div>
             </div>
-
+            <Skills name={name}/>
         </div>
     )
 }

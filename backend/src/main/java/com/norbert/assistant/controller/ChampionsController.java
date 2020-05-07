@@ -2,7 +2,9 @@ package com.norbert.assistant.controller;
 
 
 import com.norbert.assistant.model.Champions;
+import com.norbert.assistant.model.Skills;
 import com.norbert.assistant.repository.ChampionsRepository;
+import com.norbert.assistant.repository.SkillsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +17,19 @@ public class ChampionsController {
     @Autowired
     ChampionsRepository championsRepository;
 
+    @Autowired
+    SkillsRepository skillsRepository;
+
     @GetMapping("{name}")
     public ResponseEntity getChampByName(@PathVariable("name") String name){
-        System.out.println(championsRepository.getChampionsByName(name));
         return ResponseEntity.ok(championsRepository.getChampionsByName(name));
     }
+
+    @GetMapping("{name}/skills")
+    public ResponseEntity getChampSkills(@PathVariable("name") String name){
+        System.out.println(skillsRepository.getAllByChampions_Name(name));
+        return ResponseEntity.ok(skillsRepository.getAllByChampions_Name(name));
+    }
+
 }
+

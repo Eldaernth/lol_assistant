@@ -35,17 +35,20 @@ public class AssistantApplication {
                     .name("Vastayan Grace")
                     .description("Whenever Ahri's spells hit a champion 2 times within a short period, she briefly " +
                             "gains movement speed.")
+                    .icon_name("Vastayan_Grace")
                     .build();
 
             Skills skill2 = Skills.builder()
                     .name("Orb of Deception")
                     .description("Ahri sends out and pulls back her orb, dealing magic damage on the way out and true " +
                             "damage on the way back. After earning several spell hits, Ahri's next orb hits will restore her health. ")
+                    .icon_name("Orb_of_Deception")
                     .build();
 
             Skills skill3 = Skills.builder()
                     .name("Fox-Fire")
                     .description("Ahri releases three fox-fires, that lock onto and attack nearby enemies.")
+                    .icon_name("Fox-Fire")
                     .build();
 
             Skills skill4 = Skills.builder()
@@ -53,12 +56,14 @@ public class AssistantApplication {
                     .description("Ahri blows a kiss that damages and charms an enemy it encounters, instantly stopping " +
                             "movement abilities and causing them to walk harmlessly towards her. The target temporarily " +
                             "takes increased damage from Ahri.")
+                    .icon_name("Charm")
                     .build();
 
             Skills skill5 = Skills.builder()
                     .name("Spirit Rush")
                     .description("Ahri dashes forward and fires essence bolts, damaging nearby enemies. Spirit Rush " +
                             "can be cast up to three times before going on cooldown.")
+                    .icon_name("Spirit_Rush")
                     .build();
 
             Champions champ = Champions.builder()

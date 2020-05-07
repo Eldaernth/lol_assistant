@@ -1,7 +1,10 @@
 package com.norbert.assistant.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -10,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-public class Skills {
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +25,9 @@ public class Skills {
 
     private String icon_name;
 
+    private int price;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    private Champions champions;
-
+    private Champion champions;
 }

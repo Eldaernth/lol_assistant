@@ -1,8 +1,6 @@
 package com.norbert.assistant.controller;
 
 
-import com.norbert.assistant.model.Champions;
-import com.norbert.assistant.model.Skills;
 import com.norbert.assistant.repository.ChampionsRepository;
 import com.norbert.assistant.repository.SkillsRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -58,3 +58,12 @@ h2{
     border: 1px solid #f2c261;
 }
 
+.navigator{
+    border-bottom: 1px solid #ffaa00;
+    border-radius: 20%;
+}
+
+.navigator ul li {
+    margin-left: 40px;
+    margin-right:40px;
+}

@@ -25,7 +25,6 @@ public class ChampionsController {
 
     @GetMapping("{name}/skills")
     public ResponseEntity getChampSkills(@PathVariable("name") String name){
-        System.out.println(skillsRepository.getAllByChampions_Name(name));
         return ResponseEntity.ok(skillsRepository.getAllByChampions_Name(name));
     }
 

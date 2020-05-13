@@ -3,20 +3,23 @@ import {useParams} from "react-router-dom"
 import {ChampionContext} from "../context/ChampionContext"
 import "../css/ChampionsPage.css"
 import Skills from "./Skills";
+import Items from "./Items";
 
 
 export default function ChampionPage() {
     let {name} = useParams();
-    const {champion,championMethods,skills} = useContext(ChampionContext);
+    const {champion,championMethods} = useContext(ChampionContext);
+
     useEffect(() => {
         championMethods.getChampionDetails(name);
     }, [])
+
     return (
         <div className="champions_page">
             <div className="champ_img_wrapper">
                 <img src="ahri.jpg" className="champ_img"/>
             </div>
-            <div>
+            <div className="navigator">
                 <ul>
                     <li><a href="#details"><h2>Details</h2></a></li>
                     <li><a href="#skills"><h2>Skills</h2></a></li>
@@ -62,6 +65,7 @@ export default function ChampionPage() {
                 </div>
             </div>
             <Skills name={name}/>
+            <Items name={name}/>
         </div>
     )
 }

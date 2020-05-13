@@ -1,5 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
 import {ChampionContext} from "../context/ChampionContext";
+import "../css/Items.css";
 
 export default function Items({name}) {
     const {championMethods,items} = useContext(ChampionContext);
@@ -15,13 +16,17 @@ export default function Items({name}) {
             <h1>Builds</h1>
             <div>
             <h2>Popular items</h2>
+                <div className="item_img_wrapper">
                 {items.map((data)=>
 
                     <div>
+                        <div className="item_img">
                         <img src={`${data.icon_name}.webp`} onMouseEnter={()=>setOnMouse(true)} onMouseLeave={()=>setOnMouse(false)}/>
-                        {onMouse && <div>{data.name}</div>}
+                        <div className={onMouse || `item_popup`}>{data.name}</div>
+                        </div>
                     </div>
                 )}
+            </div>
             </div>
         </div>
     )

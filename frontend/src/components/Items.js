@@ -16,17 +16,19 @@ export default function Items({name}) {
             <h1>Builds</h1>
             <div>
             <h2>Popular items</h2>
-                <div className="item_img_wrapper">
-                {items.map((data)=>
-
-                    <div>
-                        <div className="item_img">
-                        <img src={`${data.icon_name}.webp`} onMouseEnter={()=>setOnMouse(true)} onMouseLeave={()=>setOnMouse(false)}/>
-                        <div className={onMouse || `item_popup`}>{data.name}</div>
+                <div className="skill_wrapper">
+                    {items.map((row) =>
+                        <div className="skill_details">
+                            <div className="skill_icon">
+                                <img src={`/${row.icon_name}.webp`}/>
+                            </div>
+                            <div className="skill_description">
+                                <h2>{row.name}</h2>
+                                <p>{row.description}</p>
+                            </div>
                         </div>
-                    </div>
-                )}
-            </div>
+                    )}
+                </div>
             </div>
         </div>
     )

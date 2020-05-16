@@ -44,8 +44,10 @@ public class Champion {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @JsonIgnore
-    private List<Item> items;@Singular
+    private List<ItemBuild> itemBuilds;
 
+
+    @Singular
     @OneToMany(mappedBy = "champions", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude

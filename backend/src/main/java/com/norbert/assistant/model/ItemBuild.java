@@ -1,34 +1,30 @@
 package com.norbert.assistant.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-public class Item {
+public class ItemBuild {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String name;
-
-    @Column(columnDefinition="TEXT")
-    private String description;
-
-    private String icon_name;
-
-    private int price;
+    @Singular
+    @OneToMany(mappedBy = "itemBuild", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @JsonIgnore
+    private List<Item> items;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    private ItemBuild itemBuild;
+    private Champion champions;
 }

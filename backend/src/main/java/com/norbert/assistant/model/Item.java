@@ -1,12 +1,10 @@
 package com.norbert.assistant.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -28,7 +26,9 @@ public class Item {
 
     private int price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable
+    @Singular("itemBuild")
     @JsonIgnore
-    private ItemBuild itemBuild;
+    private List<ItemBuild> itemBuild;
 }

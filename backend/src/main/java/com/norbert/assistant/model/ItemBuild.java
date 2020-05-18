@@ -17,11 +17,12 @@ public class ItemBuild {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private String name;
+
     @Singular
-    @OneToMany(mappedBy = "itemBuild", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "itemBuild", cascade = CascadeType.ALL)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @JsonIgnore
     private List<Item> items;
 
     @ManyToOne(fetch = FetchType.LAZY)

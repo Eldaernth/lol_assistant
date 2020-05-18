@@ -2,8 +2,10 @@ package com.norbert.assistant;
 
 import com.norbert.assistant.model.Champion;
 import com.norbert.assistant.model.Item;
+import com.norbert.assistant.model.ItemBuild;
 import com.norbert.assistant.model.Skill;
 import com.norbert.assistant.repository.ChampionsRepository;
+import com.norbert.assistant.repository.ItemBuildRepository;
 import com.norbert.assistant.repository.ItemRepository;
 import com.norbert.assistant.repository.SkillsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 @SpringBootApplication
 public class AssistantApplication {
@@ -22,6 +27,9 @@ public class AssistantApplication {
 
     @Autowired
     ItemRepository itemRepository;
+
+    @Autowired
+    ItemBuildRepository itemBuildRep;
 
     public static void main(String[] args) {
         SpringApplication.run(AssistantApplication.class, args);
@@ -139,6 +147,26 @@ public class AssistantApplication {
                     .price(1100)
                     .build();
 
+            ItemBuild itemBuild = ItemBuild.builder()
+                    .name("Popular Items")
+                    .item(item)
+                    .item(item2)
+                    .item(item3)
+                    .item(item4)
+                    .item(item5)
+                    .item(item6)
+                    .build();
+
+            ItemBuild itemBuild2 = ItemBuild.builder()
+                    .name("Most win rate build")
+                    .item(item7)
+                    .item(item2)
+                    .item(item3)
+                    .item(item8)
+                    .item(item5)
+                    .item(item6)
+                    .build();
+
             Skill skill1 = Skill.builder()
                     .name("Vastayan Grace")
                     .description("Whenever Ahri's spells hit a champion 2 times within a short period, she briefly " +
@@ -190,17 +218,20 @@ public class AssistantApplication {
                     .skill(skill3)
                     .skill(skill4)
                     .skill(skill5)
-                    .item(item)
-                    .item(item2)
-                    .item(item3)
-                    .item(item4)
-                    .item(item5)
-                    .item(item6)
-                    .item(item7)
-                    .item(item8)
+                    .itemBuild(itemBuild)
                     .build();
 
+            item.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild)));
+            item2.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild,itemBuild2)));
+            item3.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild,itemBuild2)));
+            item4.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild)));
+            item5.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild,itemBuild2)));
+            item6.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild,itemBuild2)));
+            item7.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild2)));
+            item8.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild2)));
             championsRepository.save(champ);
+            itemBuild.setChampions(champ);
+            itemBuild2.setChampions(champ);
             skill1.setChampions(champ);
             skill2.setChampions(champ);
             skill3.setChampions(champ);
@@ -211,22 +242,8 @@ public class AssistantApplication {
             skillsRepository.save(skill3);
             skillsRepository.save(skill4);
             skillsRepository.save(skill5);
-            item.setChampions(champ);
-            item2.setChampions(champ);
-            item3.setChampions(champ);
-            item4.setChampions(champ);
-            item5.setChampions(champ);
-            item6.setChampions(champ);
-            item7.setChampions(champ);
-            item8.setChampions(champ);
-            itemRepository.save(item);
-            itemRepository.save(item2);
-            itemRepository.save(item3);
-            itemRepository.save(item4);
-            itemRepository.save(item5);
-            itemRepository.save(item6);
-            itemRepository.save(item7);
-            itemRepository.save(item8);
+            itemBuildRep.save(itemBuild);
+            itemBuildRep.save(itemBuild2);
         };
     }
 }

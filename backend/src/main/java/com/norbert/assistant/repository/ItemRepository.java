@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ItemRepository extends JpaRepository<Item,Long> {
 
-    List<Item> getItemsByChampions_Name(String name);
+    List<Item> getItemsByItemBuild(long itemBuildId);
 }

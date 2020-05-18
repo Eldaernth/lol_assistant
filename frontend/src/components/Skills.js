@@ -8,7 +8,6 @@ export default function Skills({name}) {
     useEffect(() => {
         championMethods.getChampionSkills(name)
     }, []);
-    console.log(skills);
     return (
         <div id="skills" className="champ_details">
             <h1>Skills</h1>

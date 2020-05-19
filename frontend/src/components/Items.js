@@ -26,6 +26,7 @@ export default function Items({name}) {
                         </div>
                     )}
                 </div>
+                <button>Add new build</button>
             </div>
         </div>
     )

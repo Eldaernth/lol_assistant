@@ -14,7 +14,6 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/{champName}")
 public class ItemController {
 
     List<List<Item>> items = new ArrayList<>();
@@ -27,8 +26,8 @@ public class ItemController {
     @Autowired
     ItemRepository itemRepository;
 
-    @GetMapping("/items")
-    public ResponseEntity getItems(@PathVariable("champName")String champName){
+    @GetMapping("/{champName}/item_builds")
+    public ResponseEntity getItemBuilds(@PathVariable("champName")String champName){
         items.clear();
         names.clear();
         List<ItemBuild> itemBuilds = itemBuildRepository.getItemBuildByChampions_Name(champName);
@@ -37,5 +36,11 @@ public class ItemController {
             names.add(itemBuild.getName());
         }
         return ResponseEntity.ok(new ArrayList<>(Arrays.asList(names,items)));
+    }
+
+    @GetMapping("/items")
+    public ResponseEntity getItems(){
+        System.out.println(itemRepository.findAll());
+        return ResponseEntity.ok(itemRepository.findAll());
     }
 }

@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import {ChampionContext} from "../context/ChampionContext";
 import "../css/Items.css";
+import {Link} from "react-router-dom";
 
 export default function Items({name}) {
     const {championMethods,items,names} = useContext(ChampionContext);
@@ -26,7 +27,9 @@ export default function Items({name}) {
                         </div>
                     )}
                 </div>
-                <button>Add new build</button>
+                <Link to="/item_builds">
+                <button className="detail_wrapper add_button">Add new build</button>
+                </Link>
             </div>
         </div>
     )

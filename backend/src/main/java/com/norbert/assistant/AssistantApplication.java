@@ -45,6 +45,7 @@ public class AssistantApplication {
                             "For nearly a century, the greatest Mage icon mage in Valoran resided in the scorched desert of the Zear realm until the first crusade of the Rune Wars devastated the entire region forcing millions to flee. The crusaders killed all desperate travelers attempting the mass exodus from Zear, but one mage escaped their grasp by making such haste across the land that word spread throughout Valoran that the very shoes this mage wore must be imbued with immense power")
                     .icon_name("Sorcerer's_Shoes")
                     .price(1100)
+                    .picked(false)
                     .build();
 
             Item item2 = Item.builder()
@@ -59,6 +60,7 @@ public class AssistantApplication {
                                     "Unique – Cursed Strike: Dealing magic damage to an enemy champion inflicts them with Grievous Wounds icon Grievous Wounds for 3 seconds.\n")
                     .icon_name("Morellonomicon")
                     .price(3000)
+                    .picked(false)
                     .build();
 
             Item item3 = Item.builder()
@@ -71,6 +73,7 @@ public class AssistantApplication {
                             "Unique: +40% ability power.\n")
                             .icon_name("Rabadon's_Deathcap")
                     .price(3600)
+                    .picked(false)
                     .build();
 
             Item item4 = Item.builder()
@@ -85,6 +88,7 @@ public class AssistantApplication {
                             "Unique – Stasis: Put yourself in Stasis icon stasis for 2.5 seconds, rendering yourself Playful untargetable and Cosmic Radiance invulnerable for the duration but becoming unable to move, declare basic attacks, cast abilities or item actives, or use any summoner spells during this time (120 second cooldown).\n")
                     .icon_name("Zhonya's_Hourglass")
                     .price(2900)
+                    .picked(false)
                     .build();
 
             Item item5 = Item.builder()
@@ -101,6 +105,7 @@ public class AssistantApplication {
                                     "Unique – Frost Bolt: After a 0.25-second delay, fires over 0.2 seconds a spray of five icy bolts in a cone, which each bolt dealing 100 − 200 (based on level) (+ 20% AP) magic damage and Slow icon slowing by 65%, decaying over 2 second, the first units hit (40 second cooldown, shared with other Hextech items).\n")
                     .icon_name("Hextech_GLP-800")
                     .price(1100)
+                    .picked(false)
                     .build();
 
             Item item6 = Item.builder()
@@ -115,6 +120,7 @@ public class AssistantApplication {
                                     "Basic attacks deal an additional 5 physical damage to minions on-hit.\n")
                     .icon_name("Doran's_Ring")
                     .price(400)
+                    .picked(false)
                     .build();
 
             Item item7 = Item.builder()
@@ -127,6 +133,7 @@ public class AssistantApplication {
                                     "Limited to 5 at one time. Limited to one type of Healing Potion.\n")
                     .icon_name("Health_Potion")
                     .price(1100)
+                    .picked(false)
                     .build();
 
             Item item8 = Item.builder()
@@ -145,6 +152,7 @@ public class AssistantApplication {
                                     "This dash cannot pass through terrain.\n")
                     .icon_name("Hextech_Protobelt-01")
                     .price(1100)
+                    .picked(false)
                     .build();
 
             ItemBuild itemBuild = ItemBuild.builder()

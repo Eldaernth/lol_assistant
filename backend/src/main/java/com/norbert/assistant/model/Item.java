@@ -26,6 +26,8 @@ public class Item {
 
     private int price;
 
+    private boolean picked;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable
     @Singular("itemBuild")

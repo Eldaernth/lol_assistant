@@ -1,3 +1,29 @@
 .index{
     visibility: hidden;
 }
+
+.add_button{
+    cursor:pointer;
+    width:30%;
+    min-height: 80px;
+}
+
+.items{
+    cursor:pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.item{
+    width:10%;
+    padding: 10px;
+    margin:10px;
+    border: 1px solid #f2c261;
+    background-color: #121010;
+}
+
+.picked{
+    background-color: #f2c261;
+}

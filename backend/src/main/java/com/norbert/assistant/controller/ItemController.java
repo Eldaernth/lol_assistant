@@ -5,6 +5,7 @@ import com.norbert.assistant.model.ItemBuild;
 import com.norbert.assistant.repository.ItemBuildRepository;
 import com.norbert.assistant.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,20 +28,27 @@ public class ItemController {
     ItemRepository itemRepository;
 
     @GetMapping("/{champName}/item_builds")
-    public ResponseEntity getItemBuilds(@PathVariable("champName")String champName){
+    public ResponseEntity getItemBuilds(@PathVariable("champName") String champName) {
         items.clear();
         names.clear();
         List<ItemBuild> itemBuilds = itemBuildRepository.getItemBuildByChampions_Name(champName);
-        for(ItemBuild itemBuild : itemBuilds){
+        for (ItemBuild itemBuild : itemBuilds) {
             items.add(itemBuild.getItems());
             names.add(itemBuild.getName());
         }
-        return ResponseEntity.ok(new ArrayList<>(Arrays.asList(names,items)));
+        return ResponseEntity.ok(new ArrayList<>(Arrays.asList(names, items)));
     }
 
     @GetMapping("/items")
-    public ResponseEntity getItems(){
+    public ResponseEntity getItems() {
         System.out.println(itemRepository.findAll());
         return ResponseEntity.ok(itemRepository.findAll());
+    }
+
+    @PostMapping("/{champName}/item_builds")
+    public ResponseEntity<String> addBuild(@PathVariable("champName") String champName, @RequestBody ItemBuild itemBuild) {
+        System.out.println(itemBuild);
+        itemBuildRepository.save(itemBuild);
+        return new ResponseEntity<>("Succesfull", HttpStatus.OK);
     }
 }

@@ -5,7 +5,8 @@
 .add_button{
     cursor:pointer;
     width:30%;
-    min-height: 80px;
+    min-height: 60px;
+    margin-top: 20px;
 }
 
 .items{
@@ -26,4 +27,37 @@
 
 .picked{
     background-color: #f2c261;
+}
+
+.popup-content{
+    background:#1f1e1e;
+}
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #f0c369;
+    outline: 0;
+    font-size: 1.3rem;
+    color: white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form__field:focus {
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #ffaa00;
+    font-weight:700;
+    padding-bottom: 6px;
+    border-width: 3px;
+    border-color: #ffaa00;
 }

@@ -12,18 +12,16 @@ import {ItemProvider} from "../context/ItemContext";
 function App() {
     return (
         <Router>
-
             <div className="App">
                 <NavBar/>
                 <Switch>
-                    <ItemProvider>
-                    <Route path="/item_builds" exact component={ItemBuilds}/>
-                    </ItemProvider>
                     <ChampionProvider>
+                        <Route path="/:name" exact component={ChampionPage}/>
                         <Route path="/" exact component={Homepage}/>
-                        <Route path="/:name" component={ChampionPage}/>
+                        <ItemProvider>
+                            <Route path="/item_builds" exact component={ItemBuilds}/>
+                        </ItemProvider>
                     </ChampionProvider>
-
                 </Switch>
             </div>
         </Router>

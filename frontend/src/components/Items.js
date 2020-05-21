@@ -11,7 +11,7 @@ export default function Items({name}) {
     useEffect(()=>{
         championMethods.getChampionItems(name);
     },[])
-    console.log(names);
+    console.log(items);
     return (
         <div>
             <h1>Builds</h1>

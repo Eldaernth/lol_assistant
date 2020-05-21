@@ -32,7 +32,7 @@ export default function ItemBuilds() {
                     </div>
                 )}
             </div>
-            <Popup contentStyle={{backgroundColor: "#1f1e1e", minHeight: "300px",display:"flex",flexDirection:"column",alignItems:"center"}} modal
+            <Popup contentStyle={{backgroundColor: "#1f1e1e", minHeight: "200px",display:"flex",flexDirection:"column",alignItems:"center"}} modal
                    trigger={<button className="detail_wrapper add_button">Add new build</button>}>
                     <h2>Give name to the build</h2>
                 <div className="form__group field">

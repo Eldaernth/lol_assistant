@@ -30,7 +30,6 @@ public class Item {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable
-    @Singular("itemBuild")
     @JsonIgnore
-    private List<ItemBuild> itemBuild;
+    private List<ItemBuild> itemBuilds;
 }

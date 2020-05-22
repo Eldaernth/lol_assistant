@@ -16,10 +16,9 @@ function App() {
                 <NavBar/>
                 <Switch>
                     <ChampionProvider>
+                        <ItemProvider>
                         <Route path="/:name" exact component={ChampionPage}/>
                         <Route path="/" exact component={Homepage}/>
-                        <ItemProvider>
-                            <Route path="/item_builds" exact component={ItemBuilds}/>
                         </ItemProvider>
                     </ChampionProvider>
                 </Switch>

@@ -4,14 +4,15 @@ import "../css/Items.css"
 import update from 'react-addons-update';
 import Popup from "reactjs-popup";
 
-export default function ItemBuilds() {
+export default function ItemBuilds({name}) {
     const {items, setItems, itemsMethods} = useContext(ItemContext);
     const [pickedItems, setPickedItems] = useState([]);
+    const [buildName,setBuildName] =useState("");
 
     useEffect(() => {
         itemsMethods.getItems();
     }, []);
-    console.log(pickedItems);
+    console.log(name);
     return (
         <div>
             <h1>Items</h1>
@@ -36,10 +37,11 @@ export default function ItemBuilds() {
                    trigger={<button className="detail_wrapper add_button">Add new build</button>}>
                     <h2>Give name to the build</h2>
                 <div className="form__group field">
-                    <input type="input" className="form__field" placeholder="Build name" name="name" id='name' required/>
+                    <input type="input" className="form__field" placeholder="Build name" name="name" id='name' required
+                           value={buildName} onChange={(e)=>setBuildName(e.target.value)}/>
                     <label htmlFor="name" className="form__label"></label>
                 </div>
-                <button className="detail_wrapper add_button">Add</button>
+                <button className="detail_wrapper add_button" onClick={()=>itemsMethods.addItemBuild(buildName,pickedItems,name)}>Add</button>
             </Popup>
         </div>
     )

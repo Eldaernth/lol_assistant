@@ -4,6 +4,7 @@ import {ChampionContext} from "../context/ChampionContext"
 import "../css/ChampionsPage.css"
 import Skills from "./Skills";
 import Items from "./Items";
+import ItemBuilds from "./ItemBuilds";
 
 
 export default function ChampionPage() {
@@ -66,6 +67,7 @@ export default function ChampionPage() {
             </div>
             <Skills name={name}/>
             <Items name={name}/>
+            <ItemBuilds name={name}/>
         </div>
     )
 }

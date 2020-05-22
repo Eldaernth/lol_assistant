@@ -27,9 +27,6 @@ export default function Items({name}) {
                         </div>
                     )}
                 </div>
-                <Link to="/item_builds">
-                <button className="detail_wrapper add_button">Add new build</button>
-                </Link>
             </div>
         </div>
     )

@@ -20,7 +20,7 @@ public class ItemBuild {
     private String name;
 
     @Singular
-    @ManyToMany(mappedBy = "itemBuild", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "itemBuilds", cascade = CascadeType.ALL)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Item> items;

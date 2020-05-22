@@ -14,7 +14,7 @@ export function ItemProvider(props) {
                 });
         },
         addItemBuild: (name, pickedItems, champ) => {
-            Axios.post(`http://localhost:8080/items`, {
+            Axios.post(`http://localhost:8080/${champ}/item_builds`, {
                 name: name,
                 items: pickedItems,
                 champions: champ

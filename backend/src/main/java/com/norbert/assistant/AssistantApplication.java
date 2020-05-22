@@ -167,12 +167,13 @@ public class AssistantApplication {
 
             ItemBuild itemBuild2 = ItemBuild.builder()
                     .name("Most win rate build")
-                    .item(item7)
-                    .item(item2)
                     .item(item3)
-                    .item(item8)
+                    .item(item2)
                     .item(item5)
                     .item(item6)
+                    .item(item7)
+                    .item(item8)
+
                     .build();
 
             Skill skill1 = Skill.builder()
@@ -229,14 +230,14 @@ public class AssistantApplication {
                     .itemBuild(itemBuild)
                     .build();
 
-            item.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild)));
-            item2.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild,itemBuild2)));
-            item3.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild,itemBuild2)));
-            item4.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild)));
-            item5.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild,itemBuild2)));
-            item6.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild,itemBuild2)));
-            item7.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild2)));
-            item8.setItemBuild(new ArrayList<>(Arrays.asList(itemBuild2)));
+            item.setItemBuilds(new ArrayList<>(Arrays.asList(itemBuild)));
+            item2.setItemBuilds(new ArrayList<>(Arrays.asList(itemBuild,itemBuild2)));
+            item3.setItemBuilds(new ArrayList<>(Arrays.asList(itemBuild,itemBuild2)));
+            item4.setItemBuilds(new ArrayList<>(Arrays.asList(itemBuild)));
+            item5.setItemBuilds(new ArrayList<>(Arrays.asList(itemBuild,itemBuild2)));
+            item6.setItemBuilds(new ArrayList<>(Arrays.asList(itemBuild,itemBuild2)));
+            item7.setItemBuilds(new ArrayList<>(Arrays.asList(itemBuild2)));
+            item8.setItemBuilds(new ArrayList<>(Arrays.asList(itemBuild2)));
             championsRepository.save(champ);
             itemBuild.setChampions(champ);
             itemBuild2.setChampions(champ);

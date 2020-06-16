@@ -5,14 +5,13 @@ import update from 'react-addons-update';
 import Popup from "reactjs-popup";
 
 export default function ItemBuilds({name}) {
-    const {items, setItems, itemsMethods} = useContext(ItemContext);
+    const {items, setItems, itemsMethods,isItemAdded} = useContext(ItemContext);
     const [pickedItems, setPickedItems] = useState([]);
     const [buildName,setBuildName] =useState("");
 
     useEffect(() => {
         itemsMethods.getItems();
-    }, []);
-    console.log(name);
+    }, [isItemAdded]);
     return (
         <div>
             <h1>Items</h1>
@@ -35,13 +34,17 @@ export default function ItemBuilds({name}) {
             </div>
             <Popup contentStyle={{backgroundColor: "#1f1e1e", minHeight: "200px",display:"flex",flexDirection:"column",alignItems:"center"}} modal
                    trigger={<button className="detail_wrapper add_button">Add new build</button>}>
+                { close =>(
+                    <div className="form__group field">
                     <h2>Give name to the build</h2>
-                <div className="form__group field">
+                    < div>
                     <input type="input" className="form__field" placeholder="Build name" name="name" id='name' required
-                           value={buildName} onChange={(e)=>setBuildName(e.target.value)}/>
+                    value={buildName} onChange={(e)=>setBuildName(e.target.value)}/>
                     <label htmlFor="name" className="form__label"></label>
-                </div>
-                <button className="detail_wrapper add_button" onClick={()=>itemsMethods.addItemBuild(buildName,pickedItems,name)}>Add</button>
+                    </div>
+                    <button className="detail_wrapper add_button" onClick={() => {itemsMethods.addItemBuild(buildName, pickedItems, name);close()}}>Add</button>
+                    </div>)
+                }
             </Popup>
         </div>
     )

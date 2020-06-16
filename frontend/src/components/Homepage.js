@@ -13,7 +13,7 @@ export default function Homepage() {
                     </Link>
                 </div>
                 <div className="img_wrapper">
-                    <Link to="/champion/Ahri">
+                    <Link to="/Ahri">
                         <img src="/ahri_face.jpeg" className="icon"/>
                     </Link>
                 </div>

@@ -8,6 +8,7 @@ export function ChampionProvider(props) {
     const [skills, setSkills] = useState([]);
     const [items ,setItems] = useState([]);
     const [names,setNames] = useState([]);
+    const [buildId,setBuildId] = useState([]);
 
     const championMethods =
         {
@@ -26,13 +27,12 @@ export function ChampionProvider(props) {
             getChampionItems:(name)=>{
                 Axios.get(`http://localhost:8080/${name}/item_builds`)
                     .then((res) => {
-                        setItems(res.data[1]);
-                        setNames(res.data[0]);
+                       console.log(res.data);
                     });
             }
             };
     return (
-        <ChampionContext.Provider value={{champion, skills, championMethods,items,names}}>
+        <ChampionContext.Provider value={{champion, skills, championMethods,items,names,buildId}}>
             {props.children}
         </ChampionContext.Provider>
     )

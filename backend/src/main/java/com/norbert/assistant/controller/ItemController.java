@@ -3,6 +3,7 @@ package com.norbert.assistant.controller;
 import com.norbert.assistant.model.Champion;
 import com.norbert.assistant.model.Item;
 import com.norbert.assistant.model.ItemBuild;
+import com.norbert.assistant.model.ItemBuildDetail;
 import com.norbert.assistant.repository.ChampionsRepository;
 import com.norbert.assistant.repository.ItemBuildRepository;
 import com.norbert.assistant.repository.ItemRepository;
@@ -19,9 +20,11 @@ import java.util.List;
 @RestController
 public class ItemController {
 
+    List<Long> id = new ArrayList<>();
+
     List<List<Item>> items = new ArrayList<>();
 
-    List<String> names = new ArrayList<>();
+    List<ItemBuildDetail> names = new ArrayList<>();
 
     List<ItemBuild> itemBuilds = new ArrayList<>();
 
@@ -41,9 +44,10 @@ public class ItemController {
         List<ItemBuild> itemBuilds = itemBuildRepository.getItemBuildByChampions_Name(champName);
         for (ItemBuild itemBuild : itemBuilds) {
             items.add(itemBuild.getItems());
-            names.add(itemBuild.getName());
+            names.add(new ItemBuildDetail(itemBuild.getName(),itemBuild.getId()));
+            id.add(itemBuild.getId());
         }
-        return ResponseEntity.ok(new ArrayList<>(Arrays.asList(names, items)));
+        return ResponseEntity.ok(new ArrayList<>(Arrays.asList(names, items,id)));
     }
 
     @GetMapping("/items")
@@ -81,5 +85,11 @@ public class ItemController {
         item6.getItemBuilds().add(itemBuild1);
         itemBuildRepository.save(itemBuild1);
         return new ResponseEntity<>("Succesfull", HttpStatus.OK);
+    }
+
+    @DeleteMapping("/item_builds/delete/{id}")
+    public ResponseEntity<String> deleteBuild(@PathVariable("id") Long id){
+        itemBuildRepository.deleteById(id);
+        return new ResponseEntity<>("Item Build deleted",HttpStatus.OK);
     }
 }

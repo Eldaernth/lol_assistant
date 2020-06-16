@@ -5,7 +5,7 @@ export const ItemContext = createContext();
 
 export function ItemProvider(props) {
     const [items,setItems] = useState([]);
-
+    const [isItemAdded,setIsItemAdded] = useState(false);
     const itemsMethods = {
         getItems: () => {
             Axios.get(`http://localhost:8080/items`)
@@ -25,13 +25,19 @@ export function ItemProvider(props) {
                     'Accept': 'application/json'
                 }
             }).then(res => {
-                console.log(res);
+                isItemAdded ? setIsItemAdded(false) : setIsItemAdded(true);
             })
         },
+        deleteItemBuild:(name) =>{
+            Axios.delete(`http://localhost:8080/item_builds/delete/${name}`)
+                .then(res=>{
+                    console.log(res.data);
+                })
+        }
     };
 
     return(
-        <ItemContext.Provider value={{items,setItems,itemsMethods}}>
+        <ItemContext.Provider value={{items,setItems,itemsMethods,isItemAdded}}>
             {props.children}
         </ItemContext.Provider>
     )

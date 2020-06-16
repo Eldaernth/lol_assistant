@@ -62,3 +62,7 @@
     border-width: 3px;
     border-color: #ffaa00;
 }
+
+.popup-content-wrapper{
+    width: 100%;
+}

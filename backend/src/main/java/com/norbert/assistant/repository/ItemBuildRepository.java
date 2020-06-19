@@ -9,4 +9,6 @@ import java.util.List;
 public interface ItemBuildRepository extends JpaRepository<ItemBuild,Long> {
 
     List<ItemBuild> getItemBuildByChampions_Name(String name);
+
+    ItemBuild getByName(String name);
 }

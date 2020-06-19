@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 
 export default function Items({name}) {
     const {championMethods,items,names} = useContext(ChampionContext);
-    const {isItemAdded} = useContext(ItemContext);
+    const {isItemAdded,itemsMethods} = useContext(ItemContext);
     const [onMouse,setOnMouse] = useState(false);
     let index = 0;
     useEffect(()=>{
@@ -20,7 +20,7 @@ export default function Items({name}) {
                     {names.map((name)=>
                         <div>
                             <h2>{name}</h2>
-                            <button>Delete</button>
+                            <button onClick={()=> itemsMethods.deleteItemBuild(name)}>Delete</button>
                             {items[index].map((item)=>
                                 <img src={`${item.icon_name}.webp`}/>
                             )}

@@ -3,7 +3,6 @@ package com.norbert.assistant.controller;
 import com.norbert.assistant.model.Champion;
 import com.norbert.assistant.model.Item;
 import com.norbert.assistant.model.ItemBuild;
-import com.norbert.assistant.model.ItemBuildDetail;
 import com.norbert.assistant.repository.ChampionsRepository;
 import com.norbert.assistant.repository.ItemBuildRepository;
 import com.norbert.assistant.repository.ItemRepository;
@@ -20,11 +19,9 @@ import java.util.List;
 @RestController
 public class ItemController {
 
-    List<Long> id = new ArrayList<>();
-
     List<List<Item>> items = new ArrayList<>();
 
-    List<ItemBuildDetail> names = new ArrayList<>();
+    List<String> names = new ArrayList<>();
 
     List<ItemBuild> itemBuilds = new ArrayList<>();
 
@@ -44,10 +41,9 @@ public class ItemController {
         List<ItemBuild> itemBuilds = itemBuildRepository.getItemBuildByChampions_Name(champName);
         for (ItemBuild itemBuild : itemBuilds) {
             items.add(itemBuild.getItems());
-            names.add(new ItemBuildDetail(itemBuild.getName(),itemBuild.getId()));
-            id.add(itemBuild.getId());
+            names.add(itemBuild.getName());
         }
-        return ResponseEntity.ok(new ArrayList<>(Arrays.asList(names, items,id)));
+        return ResponseEntity.ok(new ArrayList<>(Arrays.asList(names, items)));
     }
 
     @GetMapping("/items")
@@ -87,9 +83,10 @@ public class ItemController {
         return new ResponseEntity<>("Succesfull", HttpStatus.OK);
     }
 
-    @DeleteMapping("/item_builds/delete/{id}")
-    public ResponseEntity<String> deleteBuild(@PathVariable("id") Long id){
-        itemBuildRepository.deleteById(id);
+    @DeleteMapping("/item_builds/delete/{name}")
+    public ResponseEntity<String> deleteBuild(@PathVariable("name") String name){
+        ItemBuild itemBuild = itemBuildRepository.getByName(name);
+        itemBuildRepository.deleteById(itemBuild.getId());
         return new ResponseEntity<>("Item Build deleted",HttpStatus.OK);
     }
 }

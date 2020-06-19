@@ -27,7 +27,8 @@ export function ChampionProvider(props) {
             getChampionItems:(name)=>{
                 Axios.get(`http://localhost:8080/${name}/item_builds`)
                     .then((res) => {
-                       console.log(res.data);
+                       setItems(res.data[1]);
+                       setNames(res.data[0]);
                     });
             }
             };

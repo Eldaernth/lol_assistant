@@ -1,11 +1,10 @@
 import React, {useContext, useEffect, useState} from "react";
 import {ItemContext} from "../context/ItemContext";
 import "../css/Items.css"
-import update from 'react-addons-update';
 import Popup from "reactjs-popup";
 
 export default function ItemBuilds({name}) {
-    const {items, setItems, itemsMethods,isItemAdded} = useContext(ItemContext);
+    const {items,itemsMethods,isItemAdded} = useContext(ItemContext);
     const [pickedItems, setPickedItems] = useState([]);
     const [buildName,setBuildName] =useState("");
 

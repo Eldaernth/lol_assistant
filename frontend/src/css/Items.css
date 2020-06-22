@@ -66,3 +66,17 @@
 .popup-content-wrapper{
     width: 100%;
 }
+.delete_button{
+    position: absolute;
+    right:0;
+    top:0;
+    visibility: hidden;
+}
+.item_build_wrapper{
+    position: relative;
+    width:30%;
+    margin:50px auto;
+}
+.item_build_wrapper:hover .delete_button{
+    visibility: visible;
+}

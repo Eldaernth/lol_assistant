@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 @CrossOrigin
@@ -86,6 +87,15 @@ public class ItemController {
     @DeleteMapping("/item_builds/delete/{name}")
     public ResponseEntity<String> deleteBuild(@PathVariable("name") String name){
         ItemBuild itemBuild = itemBuildRepository.getByName(name);
+        Iterator<ItemBuild> it;
+        for(Item item : itemBuild.getItems()){
+            it=item.getItemBuilds().listIterator();
+            while (it.hasNext()){
+                if(it.next().getId() == itemBuild.getId()){
+                    it.remove();
+                }
+            }
+        }
         itemBuildRepository.deleteById(itemBuild.getId());
         return new ResponseEntity<>("Item Build deleted",HttpStatus.OK);
     }

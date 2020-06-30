@@ -6,6 +6,7 @@ export const ItemContext = createContext();
 export function ItemProvider(props) {
     const [items,setItems] = useState([]);
     const [isItemAdded,setIsItemAdded] = useState(false);
+    const [isItemDeleted,setIsItemDeleted] = useState(false);
     const itemsMethods = {
         getItems: () => {
             Axios.get(`http://localhost:8080/items`)
@@ -32,12 +33,13 @@ export function ItemProvider(props) {
             Axios.delete(`http://localhost:8080/item_builds/delete/${name}`)
                 .then(res=>{
                     console.log(res.data);
+                    isItemDeleted ? setIsItemDeleted(false) : setIsItemDeleted(true);
                 })
         }
     };
 
     return(
-        <ItemContext.Provider value={{items,setItems,itemsMethods,isItemAdded}}>
+        <ItemContext.Provider value={{items,setItems,itemsMethods,isItemAdded,isItemDeleted}}>
             {props.children}
         </ItemContext.Provider>
     )

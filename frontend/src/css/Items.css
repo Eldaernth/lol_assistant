@@ -67,10 +67,13 @@
     width: 100%;
 }
 .delete_button{
+    cursor: pointer;
     position: absolute;
     right:0;
     top:0;
     visibility: hidden;
+    background-color: darkred;
+    border: none;
 }
 .item_build_wrapper{
     position: relative;

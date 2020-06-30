@@ -7,14 +7,16 @@ export default function ItemBuilds({name}) {
     const {items,itemsMethods,isItemAdded} = useContext(ItemContext);
     const [pickedItems, setPickedItems] = useState([]);
     const [buildName,setBuildName] =useState("");
+    const [isDisplayed,setIsDisplayed] = useState(false);
 
     useEffect(() => {
         itemsMethods.getItems();
     }, [isItemAdded]);
     return (
-        <div>
-            <h1>Items</h1>
-            <h2>Select six item</h2>
+        <div className="tab">
+            <h1 onClick={()=>setIsDisplayed(!isDisplayed)}>Items</h1>
+            {isDisplayed && <div>
+                <h2>Select six item</h2>
             <div className="items">
                 {items.map((row) =>
                     <div className={row.picked ? "item picked" : "item"} onClick={() => {
@@ -31,6 +33,7 @@ export default function ItemBuilds({name}) {
                     </div>
                 )}
             </div>
+            </div>}
             <Popup contentStyle={{backgroundColor: "#1f1e1e", minHeight: "200px",display:"flex",flexDirection:"column",alignItems:"center"}} modal
                    trigger={<button className="detail_wrapper add_button">Add new build</button>}>
                 { close =>(

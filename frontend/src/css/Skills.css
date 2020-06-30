@@ -1,4 +1,6 @@
 .skill_details{
+    width: 70%;
+    margin: 50px auto;
     display: flex;
     flex:1;
 }

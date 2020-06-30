@@ -1,15 +1,18 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {ChampionContext} from "../context/ChampionContext"
 
 export default function ChampionDetails({name}) {
     const {champion,championMethods} = useContext(ChampionContext);
+    const [isDisplayed,setIsDisplayed] = useState(false);
 
     useEffect(() => {
         championMethods.getChampionDetails(name);
     }, [])
 
     return(
-        <div className="champ_details" id="details">
+        <div className="tab">
+            <h1 onClick={()=>setIsDisplayed(!isDisplayed)}>Details</h1>
+            {isDisplayed && <div className="champ_details" id="details">
             <h1>{champion.name}</h1>
             <h2>{champion.title}</h2>
             <div className="champ_header">
@@ -45,6 +48,7 @@ export default function ChampionDetails({name}) {
                     </div>
                 </a>
             </div>
+        </div>}
         </div>
     )
 

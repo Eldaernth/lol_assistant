@@ -6,15 +6,15 @@ import "../css/Items.css";
 export default function Items({name}) {
     const {championMethods,items,names} = useContext(ChampionContext);
     const {isItemAdded,itemsMethods} = useContext(ItemContext);
-    const [onMouse,setOnMouse] = useState(false);
+    const [isDisplayed,setIsDisplayed] = useState(false);
     let index = 0;
     useEffect(()=>{
         championMethods.getChampionItems(name);
     },[isItemAdded]);
     return (
-        <div>
-            <h1 id="builds">Builds</h1>
-            <div>
+        <div className="tab">
+            <h1 id="builds" onClick={()=>setIsDisplayed(!isDisplayed)}>Builds</h1>
+            {isDisplayed && <div>
                 <div className="skill_wrapper">
                     {names.map((name)=>
                         <div className="item_build_wrapper">
@@ -27,7 +27,7 @@ export default function Items({name}) {
                         </div>
                     )}
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }
